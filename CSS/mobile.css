@@ -1,0 +1,38 @@
+
+
+
+#player2J, #player1J
+{
+  font-size: 1.8em;
+}
+
+#player2J
+{
+  position: relative;
+  left: 30px;
+}
+
+#player1J
+{
+  position: relative;
+  right: 30px;
+}
+
+#player1S , #player2S
+{
+  font-size: 2.5em;
+  position: relative;
+  right: 13px;
+}
+
+
+#menuliste li a , #menuliste li span,#menuliste li a:visited ,#menuliste li a:link , #menuliste li span:visited ,#menuliste li span:link
+{
+  font-size: 1.5em;
+}
+
+.rond
+{
+  height: 50%;
+  width: 60%;
+}

@@ -1,0 +1,84 @@
+#score
+{
+  position: absolute;
+  top: 13%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 100%;
+  height: 10%;
+}
+
+#player1 , #player2
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 20%;
+  height: 100%;
+  margin: 0px;
+}
+
+#scorecenter
+{
+  display:block;
+  width: 10%;
+  height: 100%;
+  position: relative;
+  bottom: 40%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+  color: #e74c3c;
+}
+
+#player1J
+{
+  display: block;
+  width: 70%;
+  height: 50%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#player1S
+{
+  display: block;
+  width: 30%;
+  height: 70%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+  color: #E7C460;
+}
+
+#player2J
+{
+  display: block;
+  width: 70%;
+  height: 50%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2em;
+  font-weight: 700;
+  text-align: center;
+  color: #2c3e50;
+}
+
+#player2S
+{
+  display: block;
+  width: 30%;
+  height: 70%;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 3em;
+  font-weight: 700;
+  text-align: center;
+  color: #2ecc71;
+}

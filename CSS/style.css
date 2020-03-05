@@ -1,0 +1,149 @@
+#body
+{
+  overflow: hidden;
+  margin: 0px;
+}
+
+body
+{
+  overflow: hidden;
+}
+
+#game
+{
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  width: 90%;
+  opacity: 0;
+}
+
+#haut, #milieux, #bas
+{
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  width: 100%;
+  height: 33%;
+
+}
+
+#haut1 , #haut2, #haut3, #milieux1, #milieux2, #milieux3, #bas1,#bas2,#bas3
+{
+  display: block;
+  height: 100%;
+  width: 33%;
+
+
+}
+
+
+#haut1
+{
+  border-right: 2px solid #2c3e50;
+  border-bottom:2px solid #2c3e50;
+}
+
+#haut2
+{
+  border-bottom:2px solid #2c3e50;
+}
+
+#haut3
+{
+  border-left: 2px solid #2c3e50;
+  border-bottom:2px solid #2c3e50;
+}
+
+#milieux1
+{
+    border-right: 2px solid #2c3e50;
+}
+
+#milieux3
+{
+  border-left: 2px solid #2c3e50;
+}
+
+#bas1
+{
+    border-top: 2px solid #2c3e50;
+    border-right: 2px solid #2c3e50;
+}
+
+#bas2
+{
+  border-top: 2px solid #2c3e50;
+}
+
+#bas3
+{
+  border-top: 2px solid #2c3e50;
+  border-left: 2px solid #2c3e50;
+}
+
+.crois
+{
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  top: 15%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  transition: all 450ms ease-out;
+  cursor: pointer;
+}
+
+.ligne1
+{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  display: block;
+  width: 5px;
+  height: 70%;
+  border-radius: 3px;
+  transform: rotate(45deg);
+  transform-origin: center ;
+  background-color: #e74c3c;
+}
+
+.ligne2
+{
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  display: block;
+  width: 5px;
+  height: 70%;
+  border-radius: 3px;
+  transform: rotate(-45deg);
+  transform-origin: center ;
+  background-color: #E7C460;
+}
+
+.rond
+{
+  display: block;
+  position: relative;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  height: 70%;
+  width: 30%;
+  border-radius: 50%;
+  border: 4px solid #2ecc71;
+  transition: all 450ms ease-out;
+  cursor: pointer;
+}

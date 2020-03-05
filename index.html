@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" href="./MENU/stylemenu.css" />
+  <link rel="stylesheet" href="./MENU/stylehome.css" />
+  <link rel="stylesheet" href="./CSS/score.css" />
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" media="screen and (max-width:700px)" href="/fichier/mobile.css"/>
+  <title>TicTacToe</title>
+</head>
+
+<body id="body">
+
+
+        <!--En haut position : fixed -->
+        <div id="top">
+          <!--1 -->
+          <div id="logoback"><h2><a href="www.jeremy.best">By Jérémy</a></h2></div>
+
+          <!--2 -->
+          <div id="background">
+            <div id="menubarre">
+              <div id="barre1"></div>
+              <div id="barre2"></div>
+              <div id="barre3"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <!--Menu pas visible -->
+        <div id="menu">
+          <ul id="menuliste">
+            <!---<li><span id="CONNECT"></span></li>--->
+            <!---<li><span id="DISCONNECT">DISCONNECT</span></li>--->
+            <li><a href="mailto:info@jeremy.best">MAIL</a></li>
+            <li><a href="http://jeremy.best">CONTACT</a></li>
+          </ul>
+        </div>
+
+
+
+<div id="score">
+  <div id="player1">
+    <p id="player1J">Player1</p>
+    <p id="player1S">00</p>
+  </div>
+  <div id="scorecenter"><p></p></div>
+  <div id="player2">
+    <p id="player2S">00</p>
+    <p id="player2J">Player2</p>
+  </div>
+
+</div>
+
+
+<div id="game">
+  <div id="haut">
+    <span id="haut1">
+      <span class="crois">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+      </span>
+      <span class="rond"></span>
+    </span>
+    <span id="haut2">
+      <span class="crois">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+      </span>
+      <span class="rond"></span>
+    </span>
+    <span id="haut3">
+      <span class="crois">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+      </span>
+      <span class="rond"></span>
+    </span>
+  </div>
+  <div id="milieux">
+    <span id="milieux1">
+      <span class="crois">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+      </span>
+      <span class="rond">
+      </span>
+    </span>
+    <span id="milieux2">
+      <span class="crois">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+      </span>
+      <span class="rond"></span>
+    </span>
+    <span id="milieux3">
+      <span class="crois">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+      </span>
+      <span class="rond"></span>
+    </span>
+  </div>
+  <div id="bas">
+    <span id="bas1">
+      <span class="crois">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+      </span>
+      <span class="rond"></span>
+    </span>
+    <span id="bas2">
+      <span class="crois">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+      </span>
+      <span class="rond"></span>
+    </span>
+    <span id="bas3">
+      <span class="crois">
+        <div class="ligne1"></div>
+        <div class="ligne2"></div>
+      </span>
+      <span class="rond"></span>
+    </span>
+  </div>
+</div>
+
+<script src="./java.js"></script>
+<script src="./MENU/javamenu.js"></script>
+
+
+</body>
+</html>
