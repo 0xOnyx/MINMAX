@@ -1,4 +1,5 @@
-window.onload  = function() {
+
+function menu() {
 const barre1   = document.getElementById('barre1')
 const barre2   = document.getElementById('barre2')
 const barre3   = document.getElementById('barre3')
@@ -7,8 +8,8 @@ const body     = document.getElementById('body')
 const menuliste= document.getElementById('menu')
 const menutext = document.getElementById('menuliste')
 
-const play  = document.getElementById("play")
-
+const option  = [document.getElementById("LAUNCH"), document.getElementById("RESET")]
+const game    = document.getElementById('game')
 
 var click = 0
 
@@ -84,7 +85,15 @@ menu.addEventListener('click', function(){
     menufunction()
 })//menu click
 
-
+option[0].addEventListener("click", ()=>{
+  //plat = new Game()
+  game.style.opacity = "1",
+  menufunction()
+})
+option[1].addEventListener("click", ()=>{
+  plat.reset()
+  menufunction()
+})
 
 
 } //windows load

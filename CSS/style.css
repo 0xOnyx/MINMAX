@@ -22,6 +22,7 @@ body
   height: 70%;
   width: 90%;
   opacity: 0;
+  transition: 1000ms ease-out all ;  
 }
 
 #haut, #milieux, #bas

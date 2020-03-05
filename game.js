@@ -1,154 +1,164 @@
 
-// https://github.com/CodingTrain/website/tree/master/CodingChallenges/CC_154_Tic_Tac_Toe_Minimax/P5
 
-let game =
-[
-  ["","",""],    //x = en horizontale
-  ["","",""],    //y = en verticale
-  ["","",""]
-]
-
-let humain = "O"
-let ai = "X"
-
-let win = null
-
-let joueur = [humain,ai]
-
-let currentPlayer = joueur[Math.floor(Math.random() * 1)]
-
-function checkWIn(){
-  function egal(a, b, c){
-    if(a === b && b === c  &&
-       a != "" && b != ""  && c != ""){return true}
+class Game{
+  constructor(){
+    this.game = [
+      ["","",""],    //x = en horizontale
+      ["","",""],    //y = en verticale
+      ["","",""]
+    ]
+    this.humain = "O"
+    this.ai = "X"
+    this.til = "KO"
+    this.win = null
+    this.joueur = [this.humain,this.ai]
+    this.curentPlayer = null
+    this.init()
   }
-  function whoWin(a){
-    if(a === humain){win = humain}
-    if else(a === ai){win = ai}
+  init(){
+    this.curentPlayer = this.joueur[Math.floor(Math.random())]
   }
-  if(win === null){
 
-    //horizontale
-    for(let i = 0; i < 3 ; i++){
-      if( egal(game[i][0], game[i][1], game[i][2]) ){
-        return game[i][0]
+  checkWIn(){
+    function egal(a, b, c){
+      if(a === b && b === c  &&
+         a != "" && b != ""  && c != ""){return true}
+    }
+
+    if(this.win === null){
+      function whoWin(a){
+        if(a === humain){return humain}
+        else if(a === ai){return ai}
       }
-    }
-
-    //Verticale
-    for(let i = 0; i < 3 ; i++){
-      if( egal(game[0][i], game[1][i], game[2][i]) ){
-        return game[0][i]
-      }
-    }
-
-    //Croisé
-    if(egal(game[0][0]) , egal(game[1][1]), egal(game[2][2]) ){
-      return game[0][0]
-    }
-    else if(egal(game[2][2]) , egal(game[1][1]), egal(game[0][0]) ) {
-      return game[2][2]
-    }
-
-    let vide = 0
-
-    for(let x = 0 ; x < 3; x ++){
-      for(let y = 0; y < 3; y++){
-        if(game[x][y] === ""){
-          vide ++
+      //horizontale
+      for(let i = 0; i < 3 ; i++){
+        if( egal(this.game[i][0], this.game[i][1], this.game[i][2]) ){
+          return this.game[i][0]
         }
       }
-    }
 
-    if(vide === 0 && win === null){
-      return til
-    }
+      //Verticale
+      for(let i = 0; i < 3 ; i++){
+        if( egal(this.game[0][i], this.game[1][i], this.game[2][i]) ){
+          return this.game[0][i]
+        }
+      }
 
-  }
-}
+      //Croisé
+      if(egal(this.game[0][0]) , egal(this.game[1][1]), egal(this.game[2][2]) ){
+        return this.game[0][0]
+      }
+      else if(egal(this.game[2][2]) , egal(this.game[1][1]), egal(this.game[0][0]) ) {
+        return this.game[2][2]
+      }
 
-function play(x, y){
-  if(currentPlayer === humain){
-    game[x][y] = humain
-    currentPlayer = ai
-    ai()
-    console.log(game)
-  }
-}
+      let vide = 0
 
-function ai(){
-  let bestScore = null
-  let decision = {}
-  if(curentPlayer === ai){
-    function move(){
-      for(let x = 0; x < 3; x++){
+      for(let x = 0 ; x < 3; x ++){
         for(let y = 0; y < 3; y++){
-          if(game[x][y] != ""){
-            game[x][y] = ia
-            let score = minmax(game , false)
-            game[x][y] = ""
+          if(game[x][y] === ""){
+            vide ++
+          }
+        }
+      }
+
+      if(vide === 0 && this.win === null){
+        return this.til
+      }
+
+    }
+  }
+
+  play(x, y){
+    if(this.curentPlayer === this.humain ){
+      this.game[x][y] = this.humain
+      this.curentPlayer = this.ai
+      this.playAI()
+    }
+    else{
+      this.playAI()
+    }
+    console.log(this.game)
+  }
+
+  playAI(){
+    let move = {}
+    let bestScore = null
+    if(this.curentPlayer === this.ai){
+      for(let x = 0 ; x < 3 ; x++){
+        for(let y = 0 ; y < 3 ; y++){
+          if(this.game[x][y] === ""){
+            this.game[x][y] = this.ai
+            let score = this.minimax(this.game, false)
+
+            this.game[x][y] = ""
             if(score > bestScore){
               bestScore = score
-              decision = {x , y}
+              move = {x, y}
             }
           }
         }
       }
-      game[decision.x][decision.y] = ai
-      currentPlayer = humain
+
+      this.game[move.x][move.y] = this.ai
+      this.currentPlayer = this.humain
     }
   }
-}
 
-function minmax(board, maximaze){
-  let valeur = {
-    ai : 10,
-    til: 0,
-    humain: -10,
-  }
+  minimax(game, maximaze){
 
-  let winner = checkWIn()
+    let valeur = {
+      [this.humain]: -10,
+      [this.ai]: +10,
+      [this.til]: 0,
+    }
 
-  let tmpBestScore = null
+    let winner = this.checkWIn
+    if(winner != null){
+      return valeur[winner]
+    }
 
-  if(winer != null){
-    return valeur[winner]
-  }
+    let bestScore = null
 
-  if(maximaze){//humain
-    for(let x = 0; x < 3; x++){
-      for(let y = 0; y < 3; y++){
-        if(game[x][y] != ""){
-          game[x][y] = humain
-          let tmpScore = minmax(game , false)
-          game[x][y] = ""
-          tmpBestScore = max()
-          if(tmpScore > tmpBestScore){
-            score = bestScore
+    if(maximaze){
+      for(let x = 0 ; x < 3 ; x++){
+        for(let y = 0 ; y < 3 ; y++){
+          if(this.game[x][y] === ""){
+            this.game[x][y] === this.ai
+            let score = this.minimax(this.game, false)
+            if(score > bestScore){
+              bestScore = score
+            }
           }
         }
       }
+      return bestScore
     }
-    return bestScore
-  }
-
-  else{
-    for(let x = 0; x < 3; x++){
-      for(let y = 0; y < 3; y++){
-        if(game[x][y] != ""){
-          game[x][y] = ai
-          let tmpScore = minmax(game , true)
-          game[x][y] = ""
-          tmpBestScore = max()
-          if(tmpScore > tmpBestScore){
-            score = bestScore
+    else {
+      for(let x = 0 ; x < 3 ; x++){
+        for(let y = 0 ; y < 3 ; y++){
+          if(this.game[x][y] === ""){
+            this.game[x][y] === this.ai
+            let score = this.minimax(this.game, true)
+            if(score > bestScore){
+              bestScore = score
+            }
           }
         }
       }
+      return bestScore
     }
-    return bestScore
   }
+
+  reset(){
+    for(let x = 0 ; x < 3 ; x++){
+      for(let y = 0 ; y < 3 ; y++){
+        game[x][y] = ""
+        this.init()
+        this.win = null
+      }
+    }
+  }
+
+
 }
-
-
-export {play}

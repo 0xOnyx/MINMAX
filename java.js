@@ -1,4 +1,6 @@
-import {play} from "./game.js"
+
+function game() {
+let plat  = new Game()
 
 let html = [[],[],[]]
 
@@ -8,6 +10,10 @@ html[2].push(document.getElementById('bas1'),document.getElementById('bas2'),doc
 
 for(let x = 0 ; x < 3 ; x++){
   for(let y = 0 ; y < 3 ; y++){
-    html[x][y].addEventListener("click",()=>{play(x,y)})
+    html[x][y].addEventListener("click",()=>{plat.play(x,y)})
   }
 }
+
+} //windows load
+
+window.onload  = function(){menu(); game()}
