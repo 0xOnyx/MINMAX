@@ -12,11 +12,16 @@ class Game{
     this.til = "KO"
     this.win = null
     this.joueur = [this.humain,this.ai]
-    this.curentPlayer = null
+    this.curentPlayer = this.humain
+    this.valeur = {
+      [this.humain]: -10,
+      [this.ai]: +10,
+      [this.til]: 0,
+    }
     this.init()
   }
   init(){
-    this.curentPlayer = this.joueur[Math.floor(Math.random())]
+    //this.curentPlayer = this.humain //this.joueur[Math.floor(Math.random())]
   }
 
   checkWIn(){
@@ -56,8 +61,9 @@ class Game{
 
       for(let x = 0 ; x < 3; x ++){
         for(let y = 0; y < 3; y++){
-          if(game[x][y] === ""){
+          if(this.game[x][y] === ""){
             vide ++
+            return null
           }
         }
       }
@@ -70,18 +76,31 @@ class Game{
   }
 
   play(x, y){
-    if(this.curentPlayer === this.humain ){
-      this.game[x][y] = this.humain
-      this.curentPlayer = this.ai
-      this.playAI()
+
+    if(this.win === null){
+      console.log(this.win)
+      console.log(this.curentPlayer)
+      if(this.curentPlayer === this.humain ){
+        if(this.game[x][y] === ""){
+          this.game[x][y] = this.humain
+          this.curentPlayer = this.ai
+          console.log(this.curentPlayer)
+          this.playAI()
+        }
+      }
+      else{
+        this.playAI()
+      }
+      console.log(this.game)
+
+
     }
-    else{
-      this.playAI()
-    }
-    console.log(this.game)
+    this.win = this.checkWIn()
   }
 
   playAI(){
+
+
     let move = {}
     let bestScore = null
     if(this.curentPlayer === this.ai){
@@ -90,10 +109,10 @@ class Game{
           if(this.game[x][y] === ""){
             this.game[x][y] = this.ai
             let score = this.minimax(this.game, false)
-
             this.game[x][y] = ""
             if(score > bestScore){
               bestScore = score
+              console.log(score)
               move = {x, y}
             }
           }
@@ -101,21 +120,18 @@ class Game{
       }
 
       this.game[move.x][move.y] = this.ai
-      this.currentPlayer = this.humain
+      this.curentPlayer = this.humain
     }
   }
 
   minimax(game, maximaze){
 
-    let valeur = {
-      [this.humain]: -10,
-      [this.ai]: +10,
-      [this.til]: 0,
-    }
 
-    let winner = this.checkWIn
+
+    let winner = this.checkWIn()
+    console.log(winner)
     if(winner != null){
-      return valeur[winner]
+      return this.valeur[winner]
     }
 
     let bestScore = null
@@ -124,8 +140,9 @@ class Game{
       for(let x = 0 ; x < 3 ; x++){
         for(let y = 0 ; y < 3 ; y++){
           if(this.game[x][y] === ""){
-            this.game[x][y] === this.ai
+            this.game[x][y] = this.ai
             let score = this.minimax(this.game, false)
+            this.game[x][y] = ""
             if(score > bestScore){
               bestScore = score
             }
@@ -138,8 +155,9 @@ class Game{
       for(let x = 0 ; x < 3 ; x++){
         for(let y = 0 ; y < 3 ; y++){
           if(this.game[x][y] === ""){
-            this.game[x][y] === this.ai
+            this.game[x][y] = this.humain
             let score = this.minimax(this.game, true)
+            this.game[x][y] = ""
             if(score > bestScore){
               bestScore = score
             }
