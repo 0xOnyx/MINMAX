@@ -84,7 +84,6 @@ class Game{
         if(this.game[x][y] === ""){
           this.game[x][y] = this.humain
           this.curentPlayer = this.ai
-          console.log(this.curentPlayer)
           this.playAI()
         }
       }
@@ -95,7 +94,7 @@ class Game{
 
 
     }
-    this.win = this.checkWIn()
+
   }
 
   playAI(){
@@ -112,7 +111,6 @@ class Game{
             this.game[x][y] = ""
             if(score > bestScore){
               bestScore = score
-              console.log(score)
               move = {x, y}
             }
           }
