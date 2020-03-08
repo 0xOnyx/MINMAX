@@ -1,5 +1,6 @@
 #score
 {
+  opacity: 0;
   position: absolute;
   top: 13%;
   display: flex;
@@ -8,6 +9,7 @@
   flex-direction: row;
   width: 100%;
   height: 10%;
+  transition: all 2s ease-in ;
 }
 
 #player1 , #player2

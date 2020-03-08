@@ -22,7 +22,7 @@ body
   height: 70%;
   width: 90%;
   opacity: 0;
-  transition: 1000ms ease-out all ;  
+  transition: all 2s ease-in;
 }
 
 #haut, #milieux, #bas
@@ -42,8 +42,6 @@ body
   display: block;
   height: 100%;
   width: 33%;
-
-
 }
 
 
@@ -93,6 +91,7 @@ body
 
 .crois
 {
+  opacity: 0;
   display: block;
   width: 100%;
   height: 100%;
@@ -136,6 +135,7 @@ body
 
 .rond
 {
+  opacity: 0;
   display: block;
   position: relative;
   top: -50%;

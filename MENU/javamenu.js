@@ -10,6 +10,7 @@ const menutext = document.getElementById('menuliste')
 
 const option  = [document.getElementById("LAUNCH"), document.getElementById("RESET")]
 const game    = document.getElementById('game')
+const welcome = document.getElementById("welcome")
 
 var click = 0
 
@@ -87,13 +88,21 @@ menu.addEventListener('click', function(){
 
 option[0].addEventListener("click", ()=>{
   //plat = new Game()
-  game.style.opacity = "1",
+  plat.init()
+  plat.reset()
+  html.init()
+  html.render()
+  game.style.opacity = "1"
+  welcome.style.opacity = "0"
   menufunction()
 })
 option[1].addEventListener("click", ()=>{
   plat.reset()
+  html.render()
   menufunction()
 })
 
 
 } //windows load
+
+window.onload  = function(){menu()}
