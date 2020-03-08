@@ -1,4 +1,6 @@
 
+let name = null
+
 function menu() {
 const barre1   = document.getElementById('barre1')
 const barre2   = document.getElementById('barre2')
@@ -87,6 +89,7 @@ menu.addEventListener('click', function(){
 })//menu click
 
 option[0].addEventListener("click", ()=>{
+  if(name === null){ name = prompt("Votre Pseudo")}
   //plat = new Game()
   plat.init()
   plat.reset()

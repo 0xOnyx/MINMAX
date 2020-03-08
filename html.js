@@ -37,6 +37,7 @@ class Html{
         })
       }
     }
+    this.score[0][0].textContent = name 
   }
 
 
